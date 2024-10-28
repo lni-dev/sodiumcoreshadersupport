@@ -14,7 +14,7 @@ if(isSodiumBeta) upload_ready_mod_version += sodium_versions[2]
 def supp_mc_versions = new ArrayList<String>();
 supp_mc_versions.add(minecraft_version)
 
-def scss_release_type = isSodiumBeta ? "beta" : "release"
+def scss_release_type = /*isSodiumBeta ? "beta" :*/ "release"
 
 if(!additional_supported_mc_versions.isEmpty()) {
 	def versions = additional_supported_mc_versions.split(",");
