@@ -15,7 +15,7 @@ Inside your resourcepack create a new directory `assets/sodiumcoreshadersupport`
 Inside `supported-versions` must be a map, which maps different minecraft versions to an array of allowed sodium versions.
 The SodiumCoreShaderSupport mod will check if the installed sodium version is contained in the array of the installed minecraft version.
 <br>
-- If the minecraft and/or sodium version is not inside `supported-versions`, the pack cannot be activated by the user.
+- If the minecraft and/or sodium version is not inside `supported-versions`, the pack can be activated with a warning message.
 - If the user does not have sodium installed the pack can be activated.
 - If no versions.json is present, the pack can be activated with a warning message.
 - If the versions.json is malformed, the pack can be activated with a warning message.
