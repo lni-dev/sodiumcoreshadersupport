@@ -15,7 +15,6 @@ import net.minecraft.GameVersion;
 import net.minecraft.SharedConstants;
 import net.minecraft.resource.*;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.profiler.Profiler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -47,12 +46,6 @@ public class SodiumCoreShaderSupport implements ClientModInitializer {
                 .get(ResourceType.CLIENT_RESOURCES)
                 .registerReloadListener(
                         new SimpleResourceReloadListener<Void>() {
-
-                            @Override
-                            public Identifier getFabricId() {
-                                return Identifier.of("sodiumcoreshadersupport", "shaderloader");
-                            }
-
                             @Override
                             public CompletableFuture<Void> load(ResourceManager manager, Executor executor) {
                                 return CompletableFuture.supplyAsync(() -> {
@@ -83,8 +76,13 @@ public class SodiumCoreShaderSupport implements ClientModInitializer {
                             }
 
                             @Override
-                            public CompletableFuture<Void> apply(Void unused, ResourceManager resourceManager, Executor executor) {
+                            public CompletableFuture<Void> apply(Void data, ResourceManager manager, Executor executor) {
                                 return CompletableFuture.runAsync(() -> {}, executor);
+                            }
+
+                            @Override
+                            public Identifier getFabricId() {
+                                return Identifier.of("sodiumcoreshadersupport", "shaderloader");
                             }
 
                         });

@@ -8,7 +8,7 @@ plugins {
 def sodium_versions = sodium_version.split("-")
 def isSodiumBeta = sodium_versions.length > 2 && sodium_versions[2].contains("beta")
 
-def upload_ready_mod_version = project.mod_version + "-sodium" + sodium_versions[1]
+def upload_ready_mod_version = "mc${minecraft_version}-${project.mod_version}-sodium${sodium_versions[1]}"
 if(isSodiumBeta) upload_ready_mod_version += sodium_versions[2]
 
 def supp_mc_versions = new ArrayList<String>();
